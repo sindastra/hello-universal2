@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    paths:
+      - '**.c'
+      - '**Makefile'
+      - '.github/workflows/make.yml'
+  pull_request:
+    paths:
+      - '**.c'
+      - '**Makefile'
+      - '.github/workflows/make.yml'
+
+jobs:
+  build:
+
+    runs-on: macos-11
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make
